@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>  
+    <title>Lotinha</title>
+    <style>
+     body {
+            background:purple;
+            color:black;
+            font-Weight:bold;
+        }
+        h1{
+            display:flex;
+            flex-direction:rows;
+            justify-content:center;
+            margin:0;
+        }
+        /* Estilos para os checkboxes */
+        input[type=checkbox] {
+            
+            display: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: black;
+            color: red;
+            margin-right: 5px;
+            border: none;
+            
+            vertical-align: middle;
+        }
+        /* Estilos para os radios */
+        input[type=radio] {
+            display: none; 
+            cursor: pointer;
+           }
+        
+            
+        label { 
+            display: inline-block;
+            text-align: center;
+            
+            
+            border-radius:15px;
+            cursor: pointer;
+            margin-left:10px;
+            
+            }
+           
+        
+        label:hover{
+            
+        }
+        /* Estilos para o botão */
+        button {
+            display:inline;
+            
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin:1px;
+        }
+        
+        
+        /* Estilos para o input de valor */
+        #valor {
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-top: 10px;
+            margin-left:40px;
+            width:30%;
+            text-align:center;
+        }
+        /* Estilos para o input de nome */
+        input[type=text] {
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-left: 30px;
+            width:40%;
+             text-align:center;
+        }
+        #checkboxCounter{
+            display:flex;
+            flex-direction:row;
+            justify-content:center;
+        
+        }
+        .qtd {
+            display:flex;
+            flex-direction:rows;
+           justify-content:center;
+        }
+        .extra {
+            margin:2px;
+        }
+        .extra:focus{
+            background:gold;
+            color:black;
+        }
+   
+     #content{
+         width:100%;
+         background:blue;
+         color:black;
+         font-Weight:bold;
+         margin-left:px auto;
+         padding:0px;
+         margin-bottom:2px;
+         border-radius:10px;
+     }
+   .seninha{
+       
+       padding:10px 15px;
+       border-radius:10px;
+       font-Weight:bold;
+        margin-left:px;
+       background:green;
+       font-size:12px;
+       color:white;
+       
+   }
+  .quininha {
+      font-size:12px;
+       padding:10px 15px;
+       border-radius:10px;
+       font-Weight:bold;
+       color:white;
+       margin-left:px;
+       background:green;
+  }
+  
+  .nume {
+       background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin:1px;
+            margin-left:4px;
+  }
+  .nume:hover{
+      background:red;
+      color:red;
+      checked:true;
+  }
+  .nume:focus{
+      background:gold;
+      color:red;
+  }
+  label.selected {
+            background: red;
+        }
+          .loto:focus{
+         background:gold;
+            color:black;
+     }
+     #checkboxCounter{
+         border-radius:15px;
+         width:200px;
+         background:red;
+         color:white;
+         font-Weight:bold;
+         margin-bottom:3px;
+         margin-left:60px;
+     }
+        .jogos{
+         display:inline-block;
+         
+     }
+     .keno {
+         
+         
+         font-size:12px;
+       padding:10px 10px;
+       border-radius:10px;
+       font-Weight:bold;
+       color:white;
+       
+       background:green;
+     }
+    .qtd-btn.selected {
+            background-color: red;
+            color: white;
+        }
+        /* Estilo para o botão "VALIDAR" desativado */
+        .btn-disabled {
+            background-color: gray;
+            cursor: not-allowed;
+        }
+  /* Estilo para label desabilitado */
+  .nume.disabled {
+    pointer-events: none;
+    background-color: grey;
+  }
+
+  /* Estilo para label habilitado (após seleção do qtd-btn) */
+  .nume.enabled {
+    pointer-events: auto;
+  }
+  .lb7000 {
+      margin-left:5px;
+      font-size:12px;
+  }
+.lb1300{
+    margin-left:12px;font-size:12px;
+}
+.lb300 {
+    margin-left:10px;font-size:12px;
+}
+.lb100{
+    margin-left:10px;font-size:12px;
+}
+.lb30{
+    margin-left:20px;font-size:12px;
+}
+.lb10{
+    margin-left:20px;font-size:12px;
+}
+.lb4{
+    margin-left:25px;font-size:12px;
+}
+a {
+    color:green;
+}
+ /* O conteúdo do CSS permanece o mesmo */
+        .modal {
+            display: none; /* Oculta o modal por padrão */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+        }
+        
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lotinha</h1>
+    <div class="jogos">
+        <a href="Soninha.html">
+            <button class="seninha">SENINHA</button></a>
+        <a href="superMania.html">
+            <button class="quininha">SUPERMAIA</button></a>
+        <a href="quininha.html">
+            <button class="quininha">QUININHA</button></a>
+        <a href="ken.html">
+            <button class="keno">KENO</button></a>
+    </div>
+
+    <div class="qtd">QUANTIDADE DE DEZENAS</div>
+    <!-- Botão para iniciar -->
+ 
+    <!-- Informações dos multiplicadores -->
+  
+    
+    <!-- Botões para seleção de multiplicadores -->
+    
+    <button class="qtd-btn" data-value="7000" onclick="selectQtd(this)">17<br><label class ="lb7000">7000x</label></button>
+    <button class="qtd-btn" data-value="1300" onclick="selectQtd(this)">18<br><label class ="lb1300">1300x</label></button>
+    <button class="qtd-btn" data-value="300" onclick="selectQtd(this)">19<br><label class ="lb300">300x</label></button>
+    <button class="qtd-btn" data-value="100" onclick="selectQtd(this)">20 <br><label class ="lb100">100x</label></button>
+    <button class="qtd-btn" data-value="30" onclick="selectQtd(this)">21<br><label class ="lb30">30x</label></button>
+
+  
+
+  
+    <button class="qtd-btn" data-value="10" onclick="selectQtd(this)">22<br><label class ="lb30">30x</label></button>
+    <button class="qtd-btn" data-value="5" onclick="selectQtd(this)">23<br><label class ="lb30">30x</label></button>
+<br><br>
+   <div id="checkboxCounter">0 selecionado(s)</div>
+   
+    <form id="lotteryForm">
+        <div id="content">
+            <!-- Checkboxes para seleção -->
+          <label class="nume"for="pegar1">01</label>     <input id="pegar1"type="checkbox" value="01">
+        
+           <label class="nume" for="pegar2">02</label>
+        <input id="pegar2"type="checkbox" value="02">
+        
+           <label class="nume" for="pegar3">03</label>
+         <input id="pegar3" type="checkbox"  value="03">       
+         
+  <label class="nume" for="pegar4">04</label>
+        <input id="pegar4"type="checkbox"   value="04">
+        
+           <label class="nume" for="pegar5">05</label>
+        <input id="pegar5"type="checkbox"   value="05"> 
+        
+           <label class="nume" for="pegar6">06</label>  
+        <input id="pegar6"type="checkbox"   value="06">
+        
+           <label class="nume" for="pegar7">07</label>
+         <input id="pegar7"type="checkbox"   value="07">
+         
+            <label class="nume" for="pegar8">08</label>
+        <input id="pegar8"type="checkbox"   value="08">
+        
+           <label class="nume" for="pegar9">09</label>
+         <input id="pegar9"type="checkbox"   value="09">
+         
+            <label class="nume" for="pegar10">10</label>
+        <input id="pegar10"type="checkbox"   value="10">
+        
+           <label class="nume" for="pegar11">11</label>
+         <input id="pegar11"type="checkbox"   value="11">
+         
+            <label class="nume" for="pegar12">12</label>
+        <input id="pegar12"type="checkbox"  value="12">
+           <label class="nume" for="pegar13">13</label>
+        <input id="pegar13"type="checkbox" value="13">
+           <label class="nume" for="pegar14">14</label>
+        <input id="pegar14"type="checkbox"  value="14">
+        
+           <label class="nume" for="pegar15">15</label>
+         <input id="pegar15"type="checkbox"  value="15">
+         
+            <label class="nume" for="pegar16">16</label>
+        <input id="pegar16"type="checkbox"   value="16">
+        
+           <label class="nume" for="pegar17">17</label>
+          <input id="pegar17"type="checkbox"   value="17">
+          
+            <label class="nume" for="pegar18">18</label> 
+        <input id="pegar18"type="checkbox"   value="18">
+        
+           <label class="nume" for="pegar19">19</label>
+         <input id="pegar19"type="checkbox"  value="19">
+            <label class="nume" for="pegar20">20</label>
+        <input id="pegar20"type="checkbox"  value="20">
+        
+          <label class="nume" for="pegar21">21</label> 
+        <input id="pegar21"type="checkbox"   value="21">
+        
+           <label class="nume" for="pegar22">22</label>
+        <input id="pegar22"type="checkbox"  value="22">
+        
+           <label class="nume" for="pegar23">23</label>
+         <input id="pegar23"type="checkbox" value="23">
+         
+           <label class="nume" for="pegar24">24</label> 
+        <input id="pegar24"type="checkbox"   value="24">
+        
+          <label class="nume" for="pegar25">25</label> 
+         <input id="pegar25"type="checkbox"   value="25">
+         </div>
+            <!-- Repita para outros números -->
+        </div>
+           <p style="margin-left:100px;">Valor a Receber: <span id="valorReceber">0</span></p>
+   
+    <!-- Campo de valor -->
+     <input maxlength="5" id="valor" type="tel"name="valor" placeholder="R$" autocomplete="off"value="1" oninput="updateValorReceber()">
+    <!-- Campo de nome -->
+    <input type="text" name="NOME" required placeholder="Nome">
+    <br><br>
+    <!-- Botão para enviar via WhatsApp -->
+ <!-- Botão para enviar via WhatsApp -->
+<button style="margin-left:130px" id="validateButton" class="btn-disabled" type="button" onclick="openModal()">CONFIRMAR</button>
+
+</form>
+<div id="myModal" class="modal">
+      <div class="modal-content">
+          <span class="close" onclick="closeModal()">&times;</span>
+          <p>Confirme as informações antes de VALIDAR:<br></p>
+          <p id="selectedNumbersDisplay"></p> <!-- Exibe as dezenas selecionadas -->
+          <button onclick="copyPix()">Copiar PIX</button>
+          <button onclick="sendViaWhatsApp()">VALIDAR</button>
+      </div>
+  </div>
+         <div class="qtd">PROXIMAS EXTRACAO </div>
+        <input class="extra" type="button" value="07:15" onclick="setExtraValue(this)">
+        <input class="extra" type="button" value="08:15" onclick="setExtraValue(this)">
+        <input class="extra" type="button" value="09:15" onclick="setExtraValue(this)">
+        <input class="extra" type="button" value="10:15" onclick="setExtraValue(this)">
+        <input class="extra" type="button" value="11:15" onclick="setExtraValue(this)">
+        <input class="extra" type="button" value="12:15" onclick="setExtraValue(this)">
+        <input class="extra" type="button" value="13:15" onclick="setExtraValue(this)">
+        <input class="extra" type="button" value="14:15" onclick="setExtraValue(this)">
+        <input class="extra" type="button" value="15:15" onclick="setExtraValue(this)">
+        <input class="extra" type="button" value="16:15" onclick="setExtraValue(this)">   
+        <input class="extra" type="button" value="17:15" onclick="setExtraValue(this)">
+        <input class="extra" type="button" value="18:15" onclick="setExtraValue(this)">
+          <input class="extra" type="button" value="19:15" onclick="setExtraValue(this)">
+        <input style="background:green;"class="extra" type="button" value="20:00" onclick="setExtraValue(this)">
+        <input class="extra" type="button" value="20:15" onclick="setExtraValue(this)">    
+        <input class="extra" type="button" value="21:15" onclick="setExtraValue(this)"> 
+        <input class="extra" type="button" value="22:15" onclick="setExtraValue(this)">                    
+    </div>
+  
+    <script>
+        var selectedMultiplier = 0;
+    var extraValue = "";
+    var maxSelection = 0; // Armazenar o número máximo de seleções permitidas
+
+    function selectQtd(button) {
+        var buttons = document.querySelectorAll('.qtd-btn');
+        buttons.forEach(btn => btn.classList.remove('selected'));
+        button.classList.add('selected');
+        selectedMultiplier = parseFloat(button.getAttribute('data-value')) || 0;
+        maxSelection = parseInt(button.textContent); // Defina maxSelection aqui
+        updateValorReceber();
+        updateCheckboxSelection();
+        validateForm();
+    }
+
+document.addEventListener("DOMContentLoaded", function() {
+        const iniciarButton = document.querySelector('.qtd-btn');
+        const numeButtons = document.querySelectorAll('.nume');
+        const extraButtons = document.querySelectorAll('.extra');
+
+        numeButtons.forEach(button => button.classList.add('disabled'));
+        extraButtons.forEach(button => button.classList.add('disabled'));
+
+        iniciarButton.addEventListener('click', function() {
+            numeButtons.forEach(button => button.classList.remove('disabled'));
+            extraButtons.forEach(button => button.classList.remove('disabled'));
+            validateForm();
+        });
+
+        document.querySelectorAll('#content input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', updateCheckboxSelection);
+        });
+
+    // Código para gerenciar botões de horário
+   var now = new Date();
+        var currentTime = now.getHours() * 60 + now.getMinutes();
+        document.querySelectorAll('.extra').forEach(function(button) {
+            var timeParts = button.value.split(':');
+            var buttonTime = parseInt(timeParts[0]) * 60 + parseInt(timeParts[1]);
+
+            if (buttonTime >= currentTime) {
+                button.style.display = 'inline';
+            } else {
+                button.style.display = 'none';
+            }
+        });
+    });
+        function updateValorReceber() {
+            var valorInput = parseFloat(document.getElementById('valor').value) || 0;
+            var totalReceber = selectedMultiplier * valorInput;
+            document.getElementById('valorReceber').textContent = totalReceber.toFixed(2);
+        }
+
+        function setExtraValue(button) {
+            extraValue = button.value;
+            var buttons = document.querySelectorAll('.extra');
+            buttons.forEach(btn => btn.style.background = 'green');
+            button.style.background = 'red';
+            validateForm();
+        }
+
+        function validateForm() {
+        const selectedQtd = selectedMultiplier > 0;
+        const checkboxes = document.querySelectorAll('#content input[type=checkbox]');
+        const isCheckboxSelected = Array.from(checkboxes).filter(checkbox => checkbox.checked).length === maxSelection; // Verifique se o número de checkboxes selecionados corresponde ao máximo permitido
+        const extraValueSet = extraValue.length > 0;
+        const valorInput = parseFloat(document.getElementById('valor').value) || 0;
+        const validateButton = document.getElementById('validateButton');
+
+        if (selectedQtd && isCheckboxSelected && extraValueSet && !isNaN(valorInput)) {
+            validateButton.classList.remove('btn-disabled');
+            validateButton.disabled = false;
+        } else {
+            validateButton.classList.add('btn-disabled');
+            validateButton.disabled = true;
+        }
+    }
+
+        function openModal() {
+    var selectedNumbers = [];
+    var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach(function (checkbox) {
+        if (checkbox.checked) {
+            selectedNumbers.push(checkbox.value);
+        }
+    });
+
+    document.getElementById("selectedNumbersDisplay").textContent = "Dezenas Selecionadas: " + selectedNumbers.join(", ");
+    document.getElementById("myModal").style.display = "block";
+}
+
+function closeModal() {
+    document.getElementById("myModal").style.display = "none";
+}
+
+function confirmAndSend() {
+    closeModal();
+    sendViaWhatsApp();
+}
+
+function sendViaWhatsApp() {
+    var valorInput = parseFloat(document.getElementById("valor").value) || 0;
+    var nomeInput = document.getElementsByName("NOME")[0].value;
+    var selectedNumbers = [];
+    var checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+    var totalSelected = checkboxes.length;
+
+    // Verificar se o número de checkboxes selecionados corresponde ao multiplicador
+    if (totalSelected !== maxSelection) {
+        alert('O número de dezenas selecionadas deve ser exatamente ' + maxSelection + '.');
+        return;
+    }
+
+    checkboxes.forEach(function(checkbox) {
+        selectedNumbers.push(checkbox.value);
+    });
+
+    var now = new Date();
+    var date = now.toLocaleDateString();
+    var time = now.toLocaleTimeString();
+    var totalReceber = selectedMultiplier * valorInput;
+const codigo = Math.floor(100000 + Math.random() * 900000);
+    // Adicionar o horário selecionado na mensagem
+    var message = "\n\nhttps://placar-exato4.webnode.page/lotinha/";
+    message += "\n\n                       JOGO LOTINHA ";
+    message += "\n" + selectedNumbers.join(" ,");
+    message += "\n\n Nome: " + nomeInput;
+    message += "\n\n Quantidade: " + totalSelected;
+    message += "\n\n VALOR POR QUANTIDADE : × " + selectedMultiplier;
+    message += "\n\n Valor A PAGAR: R$ " + valorInput.toFixed(2);
+    
+    message += "\n\n Total a Receber: R$ " + totalReceber.toFixed(2);
+    message += "\n\n Data: " + date +    "    Hora: " + time;
+    message += "\n\n Horário Selecionado: " + extraValue;  // Inclui o horário selecionado
+    
+message += "\n\nhttps://www.divertidu.com/lotinha#resultados";
+message += "\n\n *Nº Controle da Aposta* : " +codigo;
+
+message +="\n\n pule validada com sucesso"
+    var url = "https://api.whatsapp.com/send?phone=5571992290058&text=" + encodeURIComponent(message);
+    window.open(url, "_blank");
+} document.addEventListener("DOMContentLoaded", function() {
+    // Seletor para os botões da div qtd
+    const iniciarButton = document.querySelector('.qtd-btn');
+    const numeButtons = document.querySelectorAll('.nume');
+    const extraButtons = document.querySelectorAll('.extra');
+    
+    // Inicialmente, desabilitar todos os botões da classe nume e extra, exceto o botão 'INICIAR'
+    numeButtons.forEach(button => button.classList.add('disabled'));
+    extraButtons.forEach(button => button.classList.add('disabled'));
+
+    // Adiciona o evento de clique ao botão 'INICIAR'
+    iniciarButton.addEventListener('click', function() {
+        // Remover a classe 'disabled' de todos os botões
+        numeButtons.forEach(button => button.classList.remove('disabled'));
+        extraButtons.forEach(button => button.classList.remove('disabled'));
+    });
+
+    // Adicionar lógica de bloqueio/desbloqueio dos botões de número de acordo com a seleção
+    const qtdButtons = document.querySelectorAll('.qtd-btn');
+
+    qtdButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Quando um botão da div qtd for selecionado
+            qtdButtons.forEach(btn => btn.classList.remove('selected')); // Remover seleção de outros botões
+            button.classList.add('selected'); // Adicionar classe 'selected' ao botão clicado
+
+            // Habilitar os botões da classe nume
+            numeButtons.forEach(function(btn) {
+                btn.classList.remove('disabled');
+            });
+        });
+    });
+});
+        document.addEventListener("DOMContentLoaded", function() {
+    var now = new Date();
+    var currentTime = now.getHours() * 60 + now.getMinutes(); // Convertendo horas e minutos em minutos totais do dia
+    
+    var extraButtons = document.querySelectorAll('.extra');
+    var firstAvailableButton = null;
+
+    extraButtons.forEach(function(button) {
+        var timeParts = button.value.split(':');
+        var buttonTime = parseInt(timeParts[0]) * 60 + parseInt(timeParts[1]); // Convertendo o valor do botão em minutos totais do dia
+
+        // Se o horário do botão for menor que o horário atual, ocultar o botão
+        if (buttonTime >= currentTime) {
+            button.style.display = 'inline'; // Garantir que o botão está visível
+            if (!firstAvailableButton) {
+                firstAvailableButton = button; // Defina o primeiro botão disponível
+            }
+        } else {
+            button.style.display = 'none'; // Ocultar o botão
+        }
+    });
+
+    // Marcar o primeiro botão disponível
+    if (firstAvailableButton) {
+        setExtraValue(firstAvailableButton);
+    }
+});
+function updateCheckboxSelection() {
+        var checkboxes = document.querySelectorAll('#content input[type=checkbox]');
+        var selectedCheckboxes = Array.from(checkboxes).filter(checkbox => checkbox.checked).length;
+        document.getElementById('checkboxCounter').textContent = selectedCheckboxes + ' selecionado(s)';
+
+        // Habilitar/desabilitar checkboxes com base no número máximo permitido
+        checkboxes.forEach(checkbox => {
+            checkbox.disabled = (selectedCheckboxes >= maxSelection && !checkbox.checked);
+        });
+
+        validateForm(); // Revalidar o formulário após a atualização da seleção
+    } document.addEventListener("DOMContentLoaded", function() {
+        var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+        checkboxes.forEach(function(checkbox) {
+            checkbox.addEventListener('change', function() {
+                updateCheckboxSelection(); // Atualizar a lógica de habilitação/desabilitação
+            });
+        });
+    });
+   var labels = document.querySelectorAll('.nume');
+
+labels.forEach(function(label) {
+    label.addEventListener('click', function() {
+        label.classList.toggle('selected');
+    });
+});
+
+console.log("Selected Multiplier:", selectedMultiplier);
+console.log("Total Checked:", totalSelected);
+function openModal() {
+        var selectedNumbers = [];
+        var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach(function(checkbox) {
+            if (checkbox.checked) {
+                selectedNumbers.push(checkbox.value);
+            }
+        });
+
+        document.getElementById("selectedNumbersDisplay").textContent = "Dezenas Selecionadas: " + selectedNumbers.join(", ");
+        document.getElementById("myModal").style.display = "block";
+    }
+
+    function closeModal() {
+        document.getElementById("myModal").style.display = "none";
+    }
+
+    function copyPix() {
+        var pixKey = "71992290058"; // Substitua pela sua chave PIX
+        navigator.clipboard.writeText(pixKey).then(function() {
+            alert("Chave PIX copiada com sucesso!enviar o comprovante para validar");
+        }, function(err) {
+          
+        });
+    }
+
+ 
+    </script>
+</body>
+</html>
+
