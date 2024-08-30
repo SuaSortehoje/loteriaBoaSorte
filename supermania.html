@@ -6,11 +6,10 @@
     <title>Lotinha</title>
     <style>
      body {
-               background:Orange;
+            background:Orange;
             color:black;
             font-Weight:bold;
         }
-        
         h1{
             display:flex;
             flex-direction:rows;
@@ -139,12 +138,12 @@
   .nume {
        background-color: #4CAF50;
             color: white;
-            padding: 10px 8px;
+            padding: 8px 8px;
             border: none;
-            border-radius: 10px;
+            border-radius: 5px;
             cursor: pointer;
-            margin:2px;
-            margin-left:4px;
+            margin:1px;
+            margin-left:px;
   }
   .nume:hover{
       background:red;
@@ -157,7 +156,6 @@
   }
   label.selected {
             background: red;
-            margin-left:50px;
         }
           .loto:focus{
          background:gold;
@@ -179,14 +177,13 @@
      .keno {
          
          
-         padding:10px 15px;
+         font-size:12px;
+       padding:10px 10px;
        border-radius:10px;
        font-Weight:bold;
-        margin-left:px;
-       background:green;
-       font-size:12px;
        color:white;
        
+       background:green;
      }
     .qtd-btn.selected {
             background-color: red;
@@ -209,46 +206,25 @@
   }
   .lb7000 {
       margin-left:5px;
-      font-size:10px;color:black;font-Weight:bold;
+      font-size:12px;
   }
 .lb1300{
-    margin-left:10px;font-size:10px;color:black;font-Weight:bold;
+    margin-left:12px;font-size:12px;
 }
 .lb300 {
-    margin-left:20px;font-size:10px;color:black;font-Weight:bold;
+    margin-left:10px;font-size:12px;
 }
 .lb100{
-    margin-left:25px;font-size:10px;color:black;font-Weight:bold;
+    margin-left:10px;font-size:12px;
 }
 .lb30{
-    margin-left:15px;font-size:10px;color:black;font-Weight:bold;
+    margin-left:20px;font-size:12px;
 }
 .lb10{
-    margin-left:12px;font-size:10px;color:black;font-Weight:bold;
+    margin-left:20px;font-size:12px;
 }
 .lb4{
-    margin-left:16px;font-size:10px;
-}
-.lb1500{
-    margin-left:10px;font-size:10px;
-}
-.lb1000 {
-    margin-left:10px;font-size:10px;
-}
-.lb700{
-    margin-left:12px;font-size:10px;
-}
-.lb150{
-    margin-left:20px;font-size:10px;
-}
-.lb48{
-    margin-left:25px;font-size:10px;
-}
-.lb18{
-    margin-left:25px;font-size:10px;
-}
-.lb8{
-    margin-left:30px;font-size:10px;
+    margin-left:25px;font-size:12px;
 }
 a {
     color:green;
@@ -288,58 +264,13 @@ a {
             text-decoration: none;
             cursor: pointer;
         }
-        .keno{
-            font-size:12px;
-       padding:10px 15px;
-       border-radius:10px;
-       font-Weight:bold;
-       color:white;
-       margin-left:px;
-       background:green;
-        }
-          .containeer {
-            display: flex;
-            flex-wrap: nowrap; /* Mantém os botões em uma linha */
-            overflow-x: auto; /* Permite rolagem horizontal */
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            width: 100%;
-        }
-
-        .qtd-btn {
-            padding: 10px 8px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: transform 0.2s ease; /* Adiciona a transição suave */
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            text-align: center;
-            margin-right: 10px; /* Espaçamento entre os botões */
-            
-            flex: 0 0 auto; /* Garante que os botões não se encolham */
-        }
-
-        .qtd-btn:hover {
-            transform: translateX(5px); /* Move para a direita ao passar o mouse */
-        }
-
-        .qtd-btn:active {
-            transform: translateX(-5px); /* Move para a esquerda ao clicar */
-        }
-
-        .qtd-btn label {
-            display: block;
-            font-size: 14px;
-            margin-top: 5px;
-        }
     </style>
 </head>
 <body>
  <h1>SUPER MANIA</h1>
 
 <div class="jogos">
-<a href="lotinha.html">
+<a href="LOTINHA.html">
 <input type="button" class="seninha"  value="LOTINHA"></a>
 
 <a href="quininha.html">
@@ -351,19 +282,7 @@ a {
 </div><br />
 
     <div class="qtd">QUANTIDADE DE DEZENAS</div>
-    <!-- Botão para iniciar -->
- 
-    <!-- Informações dos multiplicadores -->
-  
-   
-  
- 
-  
-  
-  
-    
-    <!-- Botões para seleção de multiplicadores -->
-      <div class="containeer">
+  <div class="containeer">
     <button class="qtd-btn" data-value="30000" onclick="selectQtd(this)">60 <br /><label class ="lb7000">30000x</label></button>
     <button class="qtd-btn" data-value="4000" onclick="selectQtd(this)">65  <br /> <label class ="lb1300">4000x</label></button>
     
@@ -374,13 +293,13 @@ a {
     <button class="qtd-btn" data-value="35" onclick="selectQtd(this)">80  <br/><label class ="lb30">35x</label></button>
   
   </div>
-    
+    <br>
    <div id="checkboxCounter">0 selecionado(s)</div>
-   
+   <br>
     <form id="lotteryForm">
         <div id="content">
             <!-- Checkboxes para seleção -->
-          <label class="nume"for="pegar1">01</label>
+             <label class="nume"for="pegar1">01</label>
         <input id="pegar1"type="checkbox" name="lotinha-Dz-01" value="01">
         
            <label class="nume" for="pegar2">02</label>
@@ -692,8 +611,9 @@ a {
         </div>
         
          <div class="qtd">PROXIMAS EXTRACAO </div>
-      <input class="extra" type="button" value="20:00" onclick="setExtraValue(this)">
-        </div>
+          <input class="extra" type="button" value="20:00" onclick="setExtraValue(this)">
+        </div>                   
+    </div>
      <p style="margin-left:100px;">Valor a Receber: <span id="valorReceber">0</span></p>
    
     <!-- Campo de valor -->
@@ -816,6 +736,11 @@ function confirmAndSend() {
     sendViaWhatsApp();
 }
 
+function confirmAndSend() {
+    closeModal();
+    sendViaWhatsApp();
+}
+
 function sendViaWhatsApp() {
     var valorInput = parseFloat(document.getElementById("valor").value) || 0;
     var nomeInput = document.getElementsByName("NOME")[0].value;
@@ -837,8 +762,8 @@ function sendViaWhatsApp() {
     var date = now.toLocaleDateString();
     var time = now.toLocaleTimeString();
     var totalReceber = selectedMultiplier * valorInput;
-const codigo = Math.floor(100000 + Math.random() * 900000);
-    // Adicionar o horário selecionado na mensagem
+    const codigo = Math.floor(100000 + Math.random() * 900000);
+
     var message = "\n\nhttps://placar-exato4.webnode.page/supermania/";
     message += "\n\n                       JOGO SUPER MANIA ";
     message += "\n" + selectedNumbers.join(" ,");
@@ -846,17 +771,16 @@ const codigo = Math.floor(100000 + Math.random() * 900000);
     message += "\n\n Quantidade: " + totalSelected;
     message += "\n\n VALOR POR QUANTIDADE : × " + selectedMultiplier;
     message += "\n\n Valor A PAGAR: R$ " + valorInput.toFixed(2);
-    
     message += "\n\n Total a Receber: R$ " + totalReceber.toFixed(2);
-    message += "\n\n Data: " + date +    "    Hora: " + time;
+    message += "\n\n Data: " + date + "    Hora: " + time;
     message += "\n\n Horário Selecionado: " + extraValue;  // Inclui o horário selecionado
+    message += "\n\n *Nº Controle da Aposta* : " + codigo;
+    message += "\n\n pule validada com sucesso";
     
-message += "\n\n *Nº Controle da Aposta* : " +codigo;
-
-message +="\n\n pule validada com sucesso"
     var url = "https://api.whatsapp.com/send?phone=5571992290058&text=" + encodeURIComponent(message);
     window.open(url, "_blank");
-} document.addEventListener("DOMContentLoaded", function() {
+}
+ document.addEventListener("DOMContentLoaded", function() {
     // Seletor para os botões da div qtd
     const iniciarButton = document.querySelector('.qtd-btn');
     const numeButtons = document.querySelectorAll('.nume');
