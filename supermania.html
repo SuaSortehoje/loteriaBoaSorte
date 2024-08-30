@@ -58,7 +58,7 @@
             
             background-color: #4CAF50;
             color: white;
-            padding: 10px 12px;
+            padding: 5px 10px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -218,13 +218,13 @@
     margin-left:10px;font-size:12px;
 }
 .lb30{
-    margin-left:20px;font-size:12px;
+    margin-left:0px;font-size:12px;
 }
 .lb10{
     margin-left:20px;font-size:12px;
 }
 .lb4{
-    margin-left:25px;font-size:12px;
+    margin-left:2px;font-size:12px;
 }
 a {
     color:green;
@@ -283,8 +283,8 @@ a {
 
     <div class="qtd">QUANTIDADE DE DEZENAS</div>
   <div class="containeer">
-    <button class="qtd-btn" data-value="30000" onclick="selectQtd(this)">60 <br /><label class ="lb7000">30000x</label></button>
-    <button class="qtd-btn" data-value="4000" onclick="selectQtd(this)">65  <br /> <label class ="lb1300">4000x</label></button>
+    <button class="qtd-btn" data-value="30000" onclick="selectQtd(this)">60 <br /><label class ="lb7000">30.000x</label></button>
+    <button class="qtd-btn" data-value="4000" onclick="selectQtd(this)">65  <br /> <label class ="lb1300">4.000x</label></button>
     
     <button class="qtd-btn" data-value="500" onclick="selectQtd(this)">70  <br/><label class ="lb300">500x</label></button>
     
@@ -604,16 +604,12 @@ a {
         
           <label class="nume" for="pegar00">00</label> 
          <input id="pegar00"type="checkbox" name="lotinha-Dz-25" value="00">
-         
-         
-         </div>
-            <!-- Repita para outros números -->
         </div>
         
-         <div class="qtd">PROXIMAS EXTRACAO </div>
-          <input class="extra" type="button" value="20:00" onclick="setExtraValue(this)">
-        </div>                   
-    </div>
+  <div class="qtd">PROXIMAS EXTRACAO </div>
+          <input style="margin-left:150px" class="extra" type="button" value="20:00" onclick="setExtraValue(this)">
+                   
+ 
      <p style="margin-left:100px;">Valor a Receber: <span id="valorReceber">0</span></p>
    
     <!-- Campo de valor -->
