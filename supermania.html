@@ -3,7 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>  
-    <title>SUPERMANIA</title>
+    <title>Lotinha</title>
     <style>
      body {
                background:Orange;
@@ -297,13 +297,49 @@ a {
        margin-left:px;
        background:green;
         }
+          .containeer {
+            display: flex;
+            flex-wrap: nowrap; /* Mantém os botões em uma linha */
+            overflow-x: auto; /* Permite rolagem horizontal */
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            width: 100%;
+        }
+
+        .qtd-btn {
+            padding: 10px 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.2s ease; /* Adiciona a transição suave */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+            margin-right: 10px; /* Espaçamento entre os botões */
+            
+            flex: 0 0 auto; /* Garante que os botões não se encolham */
+        }
+
+        .qtd-btn:hover {
+            transform: translateX(5px); /* Move para a direita ao passar o mouse */
+        }
+
+        .qtd-btn:active {
+            transform: translateX(-5px); /* Move para a esquerda ao clicar */
+        }
+
+        .qtd-btn label {
+            display: block;
+            font-size: 14px;
+            margin-top: 5px;
+        }
     </style>
 </head>
 <body>
  <h1>SUPER MANIA</h1>
 
 <div class="jogos">
-<a href="lotinha.html">
+<a href="LOTINHA.html">
 <input type="button" class="seninha"  value="LOTINHA"></a>
 
 <a href="quininha.html">
@@ -323,10 +359,11 @@ a {
   
  
   
-   <br>
+  
+  
     
     <!-- Botões para seleção de multiplicadores -->
-    
+      <div class="containeer">
     <button class="qtd-btn" data-value="30000" onclick="selectQtd(this)">60 <br /><label class ="lb7000">30000x</label></button>
     <button class="qtd-btn" data-value="4000" onclick="selectQtd(this)">65  <br /> <label class ="lb1300">4000x</label></button>
     
@@ -336,9 +373,8 @@ a {
     
     <button class="qtd-btn" data-value="35" onclick="selectQtd(this)">80  <br/><label class ="lb30">35x</label></button>
   
-  
+  </div>
     
-<br><br>
    <div id="checkboxCounter">0 selecionado(s)</div>
    
     <form id="lotteryForm">

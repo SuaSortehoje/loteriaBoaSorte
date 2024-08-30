@@ -116,7 +116,7 @@
      }
    .seninha{
        
-       padding:10px 12px;
+       padding:10px 15px;
        border-radius:10px;
        font-Weight:bold;
         margin-left:px;
@@ -244,8 +244,8 @@ a {
         
         .modal-content {
             background-color: #fefefe;
-            margin: 15% auto;
-            padding: 20px;
+            margin: 10% auto;
+            padding: 10px;
             border: 1px solid #888;
             width: 80%;
             max-width: 400px;
@@ -264,6 +264,42 @@ a {
             text-decoration: none;
             cursor: pointer;
         }
+          .containeer {
+            display: flex;
+            flex-wrap: nowrap; /* Mantém os botões em uma linha */
+            overflow-x: auto; /* Permite rolagem horizontal */
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            width: 100%;
+        }
+
+        .qtd-btn {
+            padding: 10px 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.2s ease; /* Adiciona a transição suave */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+            margin-right: 10px; /* Espaçamento entre os botões */
+            
+            flex: 0 0 auto; /* Garante que os botões não se encolham */
+        }
+
+        .qtd-btn:hover {
+            transform: translateX(5px); /* Move para a direita ao passar o mouse */
+        }
+
+        .qtd-btn:active {
+            transform: translateX(-5px); /* Move para a esquerda ao clicar */
+        }
+
+        .qtd-btn label {
+            display: block;
+            font-size: 14px;
+            margin-top: 5px;
+        }
     </style>
 </head>
 <body>
@@ -272,7 +308,7 @@ a {
         <a href="Soninha.html">
             <button class="seninha">SENINHA</button></a>
         <a href="supermania.html">
-            <button class="quininha">SUPERMANIA</button></a>
+            <button class="quininha">SUPERMAIA</button></a>
         <a href="quininha.html">
             <button class="quininha">QUININHA</button></a>
         <a href="keno.html">
@@ -280,13 +316,8 @@ a {
     </div>
 
     <div class="qtd">QUANTIDADE DE DEZENAS</div>
-    <!-- Botão para iniciar -->
  
-    <!-- Informações dos multiplicadores -->
-  
-    
-    <!-- Botões para seleção de multiplicadores -->
-    
+       <div class="containeer">
     <button class="qtd-btn" data-value="7000" onclick="selectQtd(this)">17<br><label class ="lb7000">7000x</label></button>
     <button class="qtd-btn" data-value="1300" onclick="selectQtd(this)">18<br><label class ="lb1300">1300x</label></button>
     <button class="qtd-btn" data-value="300" onclick="selectQtd(this)">19<br><label class ="lb300">300x</label></button>
@@ -297,8 +328,9 @@ a {
 
   
     <button class="qtd-btn" data-value="10" onclick="selectQtd(this)">22<br><label class ="lb30">30x</label></button>
-    <button class="qtd-btn" data-value="5" onclick="selectQtd(this)">23<br><label class ="lb30">30x</label></button>
-<br><br>
+    <button class="qtd-btn" data-value="5" onclick="selectQtd(this)">23<br><label class ="lb30">30x</label></button></div>
+
+
    <div id="checkboxCounter">0 selecionado(s)</div>
    
     <form id="lotteryForm">

@@ -58,7 +58,7 @@
             
             background-color: #4CAF50;
             color: white;
-            padding: 10px 12px;
+            padding: 10px 8px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -285,7 +285,42 @@ a {
             text-decoration: none;
             cursor: pointer;
         }
-       
+         .containeer {
+            display: flex;
+            flex-wrap: nowrap; /* Mantém os botões em uma linha */
+            overflow-x: auto; /* Permite rolagem horizontal */
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            width: 100%;
+        }
+
+        .qtd-btn {
+            padding: 10px 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.2s ease; /* Adiciona a transição suave */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+            margin-right: 10px; /* Espaçamento entre os botões */
+            
+            flex: 0 0 auto; /* Garante que os botões não se encolham */
+        }
+
+        .qtd-btn:hover {
+            transform: translateX(5px); /* Move para a direita ao passar o mouse */
+        }
+
+        .qtd-btn:active {
+            transform: translateX(-5px); /* Move para a esquerda ao clicar */
+        }
+
+        .qtd-btn label {
+            display: block;
+            font-size: 14px;
+            margin-top: 5px;
+        }
     </style>
 </head>
 <body>
@@ -299,7 +334,7 @@ a {
 
 <a href="Soninha.html">
 <input  type="button"class="quininha"value="SENINHA "></a>
-  <a href="keno.html"><input type="button"class="keno"value="KENO"></a>
+  <input type="button"class="keno"value="KENO"></a>
 </div>
     <div class="qtd">QUANTIDADE DE DEZENAS</div>
     <!-- Botão para iniciar -->
@@ -315,7 +350,7 @@ a {
      <br>
     
     <!-- Botões para seleção de multiplicadores -->
-    
+      <div class="containeer">
     <button class="qtd-btn" data-value="15000" onclick="selectQtd(this)">10 <br> <label class ="lb7000">15000x</label></button>
     <button class="qtd-btn" data-value="12000" onclick="selectQtd(this)">11<br> <label class ="lb1300">12000x</label></button>
     <button class="qtd-btn" data-value="7000" onclick="selectQtd(this)">12 <br> <label class ="lb300">7000x</label></button>
@@ -348,8 +383,8 @@ a {
     <button class="qtd-btn" data-value="90" onclick="selectQtd(this)">30<br><label class ="lb48">90x</label></button>
     <button class="qtd-btn" data-value="40" onclick="selectQtd(this)">35<br> <label class ="lb18">40x</label></button>
  
-    
-<br><br>
+    </div>
+
    <div id="checkboxCounter">0 selecionado(s)</div>
    
     <form id="lotteryForm">
